@@ -1,0 +1,42 @@
+# Muslim Weddings Mexico — robots.txt
+User-agent: *
+Allow: /
+
+# AI / generative crawlers (GEO discoverability)
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+
+# Block dev / build artifacts (defense in depth)
+Disallow: /node_modules/
+Disallow: /src/
+
+Sitemap: https://muslimweddingsmexico.com/sitemap.xml
+Host: https://muslimweddingsmexico.com
