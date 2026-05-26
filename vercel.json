@@ -6,6 +6,12 @@
   "installCommand": "npm install",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/en", "permanent": true },
+    { "source": "/services", "destination": "/en/services", "permanent": true },
+    { "source": "/process", "destination": "/en/process", "permanent": true },
+    { "source": "/contact", "destination": "/en/contact", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],

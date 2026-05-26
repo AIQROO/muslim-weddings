@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { MessageSquareText, Sparkles } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { useSeo } from "../hooks/useSeo";
 
 export default function Process() {
   const { t } = useLanguage();
+  useSeo("process");
 
   const pageVariants = {
     initial: { opacity: 0 },

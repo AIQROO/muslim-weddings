@@ -8,15 +8,18 @@
     <meta name="format-detection" content="telephone=no" />
 
     <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="mask-icon" href="/favicon.svg" color="#D95434" />
 
-    <!-- Canonical & Hreflang -->
-    <link rel="canonical" href="https://muslimweddingsmexico.com/" />
-    <link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/" />
-    <link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/?lang=es" />
-    <link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/" />
+    <!-- Canonical & Hreflang (overridden per route by useSeo hook) -->
+    <link rel="canonical" href="https://muslimweddingsmexico.com/en" />
+    <link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en" />
+    <link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es" />
+    <link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en" />
 
     <!-- Primary SEO -->
     <title>Muslim Weddings Mexico | Luxury Islamic Nikah in Cancun, Playa del Carmen & Tulum</title>
@@ -36,23 +39,25 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://muslimweddingsmexico.com/" />
+    <meta property="og:url" content="https://muslimweddingsmexico.com/en" />
     <meta property="og:title" content="Muslim Weddings Mexico | Luxury Islamic Nikah in the Mexican Caribbean" />
     <meta property="og:description" content="Ultra-luxury Islamic weddings (Nikah) crafted in Cancun, Playa del Carmen and Tulum. Certified Halal catering, certified Imams, complete privacy and white-glove concierge." />
     <meta property="og:site_name" content="Muslim Weddings Mexico" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="es_MX" />
-    <meta property="og:image" content="https://muslimweddingsmexico.com/images/hero-bg.jpeg" />
+    <meta property="og:image" content="https://muslimweddingsmexico.com/og-image.jpg" />
+    <meta property="og:image:secure_url" content="https://muslimweddingsmexico.com/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Luxury Muslim wedding ceremony in the Mexican Caribbean" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://muslimweddingsmexico.com/" />
+    <meta name="twitter:url" content="https://muslimweddingsmexico.com/en" />
     <meta name="twitter:title" content="Muslim Weddings Mexico | Luxury Islamic Nikah" />
     <meta name="twitter:description" content="Exclusive wedding agency designing luxury Islamic Nikah ceremonies in Cancun, Playa del Carmen and Tulum." />
-    <meta name="twitter:image" content="https://muslimweddingsmexico.com/images/hero-bg.jpeg" />
+    <meta name="twitter:image" content="https://muslimweddingsmexico.com/og-image.jpg" />
     <meta name="twitter:image:alt" content="Luxury Muslim wedding ceremony in the Mexican Caribbean" />
 
     <!-- Performance hints -->
@@ -61,7 +66,7 @@
     <link rel="dns-prefetch" href="https://wa.me" />
     <link rel="preload" as="image" href="/images/hero-bg.jpeg" fetchpriority="high" />
 
-    <!-- Structured Data: Organization / LocalBusiness -->
+    <!-- Structured Data: LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -70,11 +75,10 @@
       "name": "Muslim Weddings Mexico",
       "alternateName": "MWM",
       "description": "Genuine Muslim-led agency specializing in ultra-luxury Islamic Nikah weddings in Cancun, Playa del Carmen and Tulum. Certified Halal catering, certified Imams and full destination concierge for international Muslim couples.",
-      "url": "https://muslimweddingsmexico.com/",
+      "url": "https://muslimweddingsmexico.com/en",
       "logo": "https://muslimweddingsmexico.com/logo.png",
-      "image": "https://muslimweddingsmexico.com/images/hero-bg.jpeg",
+      "image": "https://muslimweddingsmexico.com/og-image.jpg",
       "telephone": "+52-55-4911-4170",
-      "email": "info@muslimweddingsmexico.com",
       "priceRange": "$$$$",
       "currenciesAccepted": "USD, MXN, EUR",
       "paymentAccepted": "Wire Transfer, Credit Card",
@@ -140,7 +144,7 @@
     }
     </script>
 
-    <!-- Structured Data: WebSite (SearchAction) -->
+    <!-- Structured Data: WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -158,7 +162,7 @@
     <noscript>
       <div style="padding:2rem;font-family:Georgia,serif;text-align:center;">
         Muslim Weddings Mexico — Luxury Islamic Nikah in the Mexican Caribbean.
-        Please enable JavaScript or contact us at info@muslimweddingsmexico.com.
+        Please enable JavaScript or contact us on WhatsApp at +52 55 4911 4170.
       </div>
     </noscript>
     <script type="module" src="/src/main.jsx"></script>

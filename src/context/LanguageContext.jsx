@@ -1,28 +1,16 @@
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import { translations } from "../utils/translations";
+
+export const SUPPORTED_LANGS = ["en", "es"];
+export const DEFAULT_LANG = "en";
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const getInitialLanguage = () => {
-    if (typeof window === "undefined") return "en";
-    const stored = window.localStorage.getItem("mwm_lang");
-    if (stored && translations[stored]) return stored;
-    const browser = (navigator.language || "en").slice(0, 2).toLowerCase();
-    return translations[browser] ? browser : "en";
-  };
-
-  const [language, setLanguageState] = useState(getInitialLanguage);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.localStorage.setItem("mwm_lang", language);
-    document.documentElement.lang = language;
-  }, [language]);
-
-  const setLanguage = (lang) => {
-    if (translations[lang]) setLanguageState(lang);
-  };
+  const { pathname } = useLocation();
+  const segment = pathname.split("/")[1];
+  const language = SUPPORTED_LANGS.includes(segment) ? segment : DEFAULT_LANG;
 
   const t = (path) => {
     const keys = path.split(".");
@@ -32,7 +20,7 @@ export const LanguageProvider = ({ children }) => {
       if (current && current[key] !== undefined) {
         current = current[key];
       } else {
-        let fallback = translations["en"];
+        let fallback = translations[DEFAULT_LANG];
         for (const fallbackKey of keys) {
           if (fallback && fallback[fallbackKey] !== undefined) {
             fallback = fallback[fallbackKey];
@@ -47,7 +35,7 @@ export const LanguageProvider = ({ children }) => {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, t }}>
       {children}
     </LanguageContext.Provider>
   );

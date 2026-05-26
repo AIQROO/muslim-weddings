@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, PhoneCall } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
+import {
+  useLanguage,
+  SUPPORTED_LANGS,
+} from "../context/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,19 +25,34 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on page change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  const lp = (path) => `/${language}${path}`;
+
   const navLinks = [
-    { name: t("navbar.inicio"), path: "/" },
-    { name: t("navbar.servicios"), path: "/services" },
-    { name: t("navbar.proceso"), path: "/process" },
-    { name: t("navbar.contacto"), path: "/contact" },
+    { name: t("navbar.inicio"), path: lp("") },
+    { name: t("navbar.servicios"), path: lp("/services") },
+    { name: t("navbar.proceso"), path: lp("/process") },
+    { name: t("navbar.contacto"), path: lp("/contact") },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => {
+    if (path === lp("")) {
+      return location.pathname === path || location.pathname === `${path}/`;
+    }
+    return location.pathname === path;
+  };
+
+  const switchLanguage = (newLang) => {
+    if (!SUPPORTED_LANGS.includes(newLang) || newLang === language) return;
+    const regex = new RegExp(`^/(${SUPPORTED_LANGS.join("|")})(?=/|$)`);
+    const nextPath = location.pathname.match(regex)
+      ? location.pathname.replace(regex, `/${newLang}`)
+      : `/${newLang}${location.pathname === "/" ? "" : location.pathname}`;
+    navigate(`${nextPath}${location.search}${location.hash}`);
+  };
 
   return (
     <>
@@ -43,8 +62,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-          {/* Brand Logo & Name */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to={lp("")} className="flex items-center gap-3 group">
             <div className="relative h-12 w-12 flex items-center justify-center rounded-full bg-neutral-dark/5 p-1 border border-cream-border/30 group-hover:border-primary/50 transition-colors duration-300">
               <img
                 src="/logo.png"
@@ -62,7 +80,6 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
@@ -72,12 +89,13 @@ export default function Navbar() {
               >
                 <span
                   className={`transition-colors duration-300 ${
-                    isActive(link.path) ? "text-primary font-semibold" : "text-neutral-dark/80 group-hover:text-primary"
+                    isActive(link.path)
+                      ? "text-primary font-semibold"
+                      : "text-neutral-dark/80 group-hover:text-primary"
                   }`}
                 >
                   {link.name}
                 </span>
-                {/* Underline Slide Animation */}
                 <span
                   className={`absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 ${
                     isActive(link.path) ? "w-full" : "w-0 group-hover:w-full"
@@ -87,38 +105,37 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop Switcher & CTA */}
           <div className="hidden md:flex items-center">
-            {/* Desktop Language Switcher */}
             <div className="flex items-center gap-2 mr-8 text-xs font-sans tracking-widest font-bold">
               <button
-                onClick={() => setLanguage("es")}
+                onClick={() => switchLanguage("es")}
                 className={`transition-colors duration-300 cursor-pointer ${
                   language === "es" ? "text-primary" : "text-neutral-dark/40 hover:text-primary"
                 }`}
+                aria-label="Switch to Spanish"
               >
                 ES
               </button>
               <span className="text-neutral-dark/20 font-normal">|</span>
               <button
-                onClick={() => setLanguage("en")}
+                onClick={() => switchLanguage("en")}
                 className={`transition-colors duration-300 cursor-pointer ${
                   language === "en" ? "text-primary" : "text-neutral-dark/40 hover:text-primary"
                 }`}
+                aria-label="Switch to English"
               >
                 EN
               </button>
             </div>
 
             <Link
-              to="/contact"
+              to={lp("/contact")}
               className="inline-flex items-center justify-center px-6 py-3 border border-primary text-xs uppercase tracking-widest font-sans font-bold text-primary hover:bg-primary hover:text-white transition-all duration-500 rounded-none shadow-sm hover:shadow-md"
             >
               {t("navbar.hablemos")}
             </Link>
           </div>
 
-          {/* Mobile Menu Burger Trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 text-neutral-dark hover:text-primary transition-colors focus:outline-none"
@@ -129,7 +146,6 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer Navigation Overlay */}
       <div
         className={`fixed inset-0 z-40 bg-neutral-dark/40 backdrop-blur-sm transition-opacity duration-500 md:hidden ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -143,9 +159,8 @@ export default function Navbar() {
         }`}
       >
         <div>
-          {/* Mobile Menu Header */}
           <div className="flex items-center justify-between pb-8 border-b border-cream-border">
-            <Link to="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
+            <Link to={lp("")} className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
               <img
                 src="/logo.png"
                 alt="Muslim Weddings Mexico"
@@ -163,7 +178,6 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Navigation Links */}
           <nav className="flex flex-col gap-6 mt-10">
             {navLinks.map((link) => (
               <Link
@@ -179,11 +193,10 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Mobile Language Switcher */}
           <div className="flex items-center gap-3 mt-8 justify-start text-[10px] font-sans tracking-widest font-bold border-t border-cream-border/40 pt-6">
             <span className="text-neutral-dark/40">{t("misc.languageLabel")}</span>
             <button
-              onClick={() => setLanguage("es")}
+              onClick={() => switchLanguage("es")}
               className={`transition-colors cursor-pointer ${
                 language === "es" ? "text-primary" : "text-neutral-dark/40"
               }`}
@@ -192,7 +205,7 @@ export default function Navbar() {
             </button>
             <span className="text-neutral-dark/20 font-normal">|</span>
             <button
-              onClick={() => setLanguage("en")}
+              onClick={() => switchLanguage("en")}
               className={`transition-colors cursor-pointer ${
                 language === "en" ? "text-primary" : "text-neutral-dark/40"
               }`}
@@ -202,10 +215,9 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu CTAs */}
         <div className="flex flex-col gap-4 mt-auto">
           <Link
-            to="/contact"
+            to={lp("/contact")}
             onClick={() => setMobileMenuOpen(false)}
             className="w-full text-center py-4 bg-primary text-xs uppercase tracking-widest font-sans font-bold text-white hover:bg-primary-hover transition-colors"
           >

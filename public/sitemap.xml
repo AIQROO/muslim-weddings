@@ -2,32 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://muslimweddingsmexico.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/?lang=es" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/" />
+    <loc>https://muslimweddingsmexico.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en" />
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://muslimweddingsmexico.com/services</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/services" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/services?lang=es" />
+    <loc>https://muslimweddingsmexico.com/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en/services" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://muslimweddingsmexico.com/process</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/process" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/process?lang=es" />
+    <loc>https://muslimweddingsmexico.com/en/process</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en/process" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es/process" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en/process" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://muslimweddingsmexico.com/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/contact" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/contact?lang=es" />
+    <loc>https://muslimweddingsmexico.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en/contact" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://muslimweddingsmexico.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://muslimweddingsmexico.com/es/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en/services" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://muslimweddingsmexico.com/es/process</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en/process" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es/process" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en/process" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://muslimweddingsmexico.com/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://muslimweddingsmexico.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://muslimweddingsmexico.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://muslimweddingsmexico.com/en/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

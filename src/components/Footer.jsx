@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-import { MapPin, ShieldCheck, Mail, Phone } from "lucide-react";
+import { MapPin, ShieldCheck, Phone } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  const lp = (path) => `/${language}${path}`;
 
   return (
     <footer className="bg-neutral-dark text-warm-bg pt-20 pb-12 border-t border-cream-border/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16">
-        {/* Column 1: Brand Bio */}
         <div className="flex flex-col gap-6">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to={lp("")} className="flex items-center gap-3">
             <div className="relative h-10 w-10 flex items-center justify-center rounded-full bg-warm-bg/5 p-1 border border-cream-border/10">
               <img
                 src="/logo.png"
@@ -39,40 +39,26 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Column 2: Quick Links */}
         <div className="flex flex-col gap-6 lg:pl-8">
           <h4 className="font-serif text-lg text-white uppercase tracking-wider font-light">
             {t("footer.exploreTitle")}
           </h4>
           <nav className="flex flex-col gap-3">
-            <Link
-              to="/"
-              className="text-sm text-warm-bg/70 hover:text-primary transition-colors duration-300 font-sans tracking-wide"
-            >
+            <Link to={lp("")} className="text-sm text-warm-bg/70 hover:text-primary transition-colors duration-300 font-sans tracking-wide">
               {t("navbar.inicio")}
             </Link>
-            <Link
-              to="/services"
-              className="text-sm text-warm-bg/70 hover:text-primary transition-colors duration-300 font-sans tracking-wide"
-            >
+            <Link to={lp("/services")} className="text-sm text-warm-bg/70 hover:text-primary transition-colors duration-300 font-sans tracking-wide">
               {t("navbar.servicios")}
             </Link>
-            <Link
-              to="/process"
-              className="text-sm text-warm-bg/70 hover:text-primary transition-colors duration-300 font-sans tracking-wide"
-            >
+            <Link to={lp("/process")} className="text-sm text-warm-bg/70 hover:text-primary transition-colors duration-300 font-sans tracking-wide">
               {t("navbar.proceso")}
             </Link>
-            <Link
-              to="/contact"
-              className="text-sm text-warm-bg/70 hover:text-primary transition-colors duration-300 font-sans tracking-wide"
-            >
+            <Link to={lp("/contact")} className="text-sm text-warm-bg/70 hover:text-primary transition-colors duration-300 font-sans tracking-wide">
               {t("navbar.contacto")}
             </Link>
           </nav>
         </div>
 
-        {/* Column 3: Locations */}
         <div className="flex flex-col gap-6">
           <h4 className="font-serif text-lg text-white uppercase tracking-wider font-light">
             {t("footer.locationsTitle")}
@@ -97,18 +83,11 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 4: Contact & Assurance */}
         <div className="flex flex-col gap-6">
           <h4 className="font-serif text-lg text-white uppercase tracking-wider font-light">
             {t("footer.contactTitle")}
           </h4>
           <ul className="flex flex-col gap-3 text-sm text-warm-bg/70">
-            <li className="flex items-center gap-3">
-              <Mail size={14} className="text-primary shrink-0" />
-              <a href="mailto:info@muslimweddingsmexico.com" className="hover:text-primary transition-colors">
-                info@muslimweddingsmexico.com
-              </a>
-            </li>
             <li className="flex items-center gap-3">
               <Phone size={14} className="text-primary shrink-0" />
               <a
@@ -132,11 +111,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Horizontal Divider */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="h-[1px] bg-cream-border/10 w-full mb-8" />
-        
-        {/* Bottom Panel */}
+
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-warm-bg/40 font-sans tracking-wide text-center md:text-left">
             © {currentYear} {t("footer.copyright")}

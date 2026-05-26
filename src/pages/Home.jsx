@@ -3,9 +3,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Star, Sparkles, MessageCircleCode } from "lucide-react";
 import ElegantArch from "../components/ElegantArch";
 import { useLanguage } from "../context/LanguageContext";
+import { useSeo } from "../hooks/useSeo";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  useSeo("home");
+  const lp = (path) => `/${language}${path}`;
 
   const pageVariants = {
     initial: { opacity: 0 },
@@ -245,7 +248,7 @@ export default function Home() {
                   </div>
 
                   <Link
-                    to="/services"
+                    to={lp("/services")}
                     className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-sans font-bold text-primary hover:text-neutral-dark transition-colors mt-auto group"
                   >
                     {t("home.services.viewDetails")} <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform" />
@@ -295,7 +298,7 @@ export default function Home() {
               {/* Micro call to action */}
               <div className="mt-4">
                 <Link
-                  to="/services"
+                  to={lp("/services")}
                   className="inline-flex items-center gap-3 px-8 py-4 bg-neutral-dark text-warm-bg text-xs uppercase tracking-widest font-sans font-bold hover:bg-primary transition-all duration-300"
                 >
                   {t("home.destination.cta")} <ArrowRight size={14} />

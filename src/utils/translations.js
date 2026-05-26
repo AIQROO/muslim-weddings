@@ -184,6 +184,24 @@ export const translations = {
       stepLabel: "PASO",
       sectionEyebrow: "Boda Islámica en México",
       whatsappFloatLabel: "Hablemos por WhatsApp"
+    },
+    seo: {
+      home: {
+        title: "Muslim Weddings Mexico | Bodas Islámicas de Lujo en Cancún, Playa del Carmen y Tulum",
+        description: "La primera agencia musulmana real especializada en bodas islámicas (Nikah) de ultra-lujo en Cancún, Playa del Carmen y Tulum. Catering Halal certificado, imanes acreditados y concierge integral."
+      },
+      services: {
+        title: "Nuestros Servicios y Colecciones | Muslim Weddings Mexico",
+        description: "Tres colecciones de bodas islámicas en México: Nikah Ceremony, Riviera Nikah y Luxury Destination Nikah. Catering Halal certificado, privacidad total y locaciones exclusivas."
+      },
+      process: {
+        title: "Nuestro Proceso | Muslim Weddings Mexico",
+        description: "Del primer mensaje al día de su Nikah. Conozca los 5 pasos de nuestra metodología para diseñar bodas islámicas impecables en el Caribe mexicano."
+      },
+      contact: {
+        title: "Contacto y Concierge | Muslim Weddings Mexico",
+        description: "Conéctese con nuestro concierge bilingüe por WhatsApp. Atención privada, discreta e inmediata para diseñar su Nikah en el Caribe mexicano."
+      }
     }
   },
   en: {
@@ -371,6 +389,24 @@ export const translations = {
       stepLabel: "STEP",
       sectionEyebrow: "Islamic Wedding in Mexico",
       whatsappFloatLabel: "Let's Talk on WhatsApp"
+    },
+    seo: {
+      home: {
+        title: "Muslim Weddings Mexico | Luxury Islamic Nikah in Cancun, Playa del Carmen & Tulum",
+        description: "The first genuine Muslim-led agency designing ultra-luxury Islamic Nikah ceremonies in Cancun, Playa del Carmen and Tulum. Certified Halal catering, certified Imams, private beaches and resorts."
+      },
+      services: {
+        title: "Our Services & Collections | Muslim Weddings Mexico",
+        description: "Three luxury Islamic wedding collections in Mexico: Nikah Ceremony, Riviera Nikah and Luxury Destination Nikah. Certified Halal catering, full privacy, exclusive Caribbean venues."
+      },
+      process: {
+        title: "Our Process | Muslim Weddings Mexico",
+        description: "From the first message to your Nikah day. The 5-step methodology we follow to design flawless Islamic weddings across the Mexican Caribbean."
+      },
+      contact: {
+        title: "Contact & Concierge | Muslim Weddings Mexico",
+        description: "Reach our bilingual concierge directly on WhatsApp. Private, discreet and immediate planning for your Nikah in the Mexican Caribbean."
+      }
     }
   }
 };

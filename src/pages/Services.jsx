@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { Check, Calendar, Shield, MessageCircleCode } from "lucide-react";
 import ElegantArch from "../components/ElegantArch";
 import { useLanguage } from "../context/LanguageContext";
+import { useSeo } from "../hooks/useSeo";
 
 export default function Services() {
   const { t } = useLanguage();
+  useSeo("services");
 
   const pageVariants = {
     initial: { opacity: 0 },

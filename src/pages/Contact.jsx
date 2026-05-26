@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { MessageSquareText, Shield } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { useSeo } from "../hooks/useSeo";
 
 export default function Contact() {
   const { t } = useLanguage();
+  useSeo("contact");
 
   const pageVariants = {
     initial: { opacity: 0 },
